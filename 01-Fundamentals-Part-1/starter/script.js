@@ -40,3 +40,15 @@
 //  }
 
 
+
+
+
+
+
+
+let bill = 40
+let tip = bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.2
+let finalValue = bill + tip
+console.log(`The bill was ${bill}, the tip was ${tip}, the total was ${finalValue}`);
+
+
