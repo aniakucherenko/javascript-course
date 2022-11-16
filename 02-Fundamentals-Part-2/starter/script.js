@@ -141,28 +141,56 @@
 // console.log(calcAverage(tips));
 // console.log("Hello!!");
 
-const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
+// const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 
-const calcTempAmplitudeNew = function (t1, t2) {
-  const temps = t1.concat(t2);
+// const calcTempAmplitudeNew = function (t1, t2) {
+//   const temps = t1.concat(t2);
 
-  let maxTemp = temps[0];
-  let minTemp = temps[0];
-  for (let i = 0; i < temps.length; i++) {
-    const curTemp = temps[i];
+//   let maxTemp = temps[0];
+//   let minTemp = temps[0];
+//   for (let i = 0; i < temps.length; i++) {
+//     const curTemp = temps[i];
 
-    if (typeof curTemp !== "number") continue;
-    if (curTemp > maxTemp) {
-      maxTemp = curTemp;
-    }
-    if (curTemp < minTemp) {
-      minTemp = curTemp;
-    }
+//     if (typeof curTemp !== "number") continue;
+//     if (curTemp > maxTemp) {
+//       maxTemp = curTemp;
+//     }
+//     if (curTemp < minTemp) {
+//       minTemp = curTemp;
+//     }
+//   }
+//   // console.log(maxTemp);
+//   // console.log(minTemp);
+//   return maxTemp - minTemp;
+// };
+// calcTempAmplitudeNew([3, 13, 5]);
+// const amplitudeNew = calcTempAmplitudeNew([3, 2, 9, 15, -3], [5, 7, -2, 12, 3]);
+// console.log(amplitudeNew);
+
+// const measureKelvin = function () {
+//   const measurement = {
+//     type: "temp",
+//     unit: "celsius",
+//     value: Number(prompt("Degrees celsius:")),
+//   };
+//   console.log(measurement);
+//   console.table(measurement);
+//   console.log(measurement.value);
+
+//   const kelvin = measurement.value + 273;
+//   return kelvin;
+// };
+// console.log(measureKelvin());
+
+const data1 = [17, 22, 24];
+const data2 = [12, 5, -5, 7, 9];
+
+const printForecast = function (arr) {
+  let string = "";
+  for (let i = 0; i < arr.length; i++) {
+    string += `... ${arr[i]}°C in ${i + 1} day`;
   }
-  // console.log(maxTemp);
-  // console.log(minTemp);
-  return maxTemp - minTemp;
+  console.log(string);
 };
-calcTempAmplitudeNew([3, 13, 5]);
-const amplitudeNew = calcTempAmplitudeNew([3, 2, 9, 15, -3], [5, 7, -2, 12, 3]);
-console.log(amplitudeNew);
+
+printForecast(data1);
