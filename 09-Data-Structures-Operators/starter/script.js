@@ -69,34 +69,80 @@ const game = {
   },
 };
 
-const [players1, players2] = game.players;
+for (const [i, player] of game.scored.entries())
+  console.log(`Goal ${i + 1}: ${player}`);
 
-const [gk, ...fieldPlayers] = players1;
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
 
-const allPlayers = [...players1, ...players2];
+// const name = Object.values();
 
-const players1Final = [...players1, 'Thiago', 'Couthingo', 'Perisic'];
+// for
 
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
+// console.log(`Odd`);
 
-const printGoals = function (...players) {
-  console.log(`${players.length} goals are scored`);
-};
+// const [players1, players2] = game.players;
 
-// printGoals('Davies', 'Muller', 'Lewandovski', 'Kimmich');
-printGoals(...game.scored);
+// const [gk, ...fieldPlayers] = players1;
 
-console.log(allPlayers);
-console.log(players1Final);
+// const allPlayers = [...players1, ...players2];
 
-team1 < team2 && console.log('Team 1 is more likely to win');
-team1 > team2 && console.log('Team 2 is more likely to win');
+// const players1Final = [...players1, 'Thiago', 'Couthingo', 'Perisic'];
 
-const menu = ['Pasta', 'Pizza', 'Lasagne'];
-for (const item of menu) console.log(item);
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
 
-for (const item of menu.entries()) {
-  console.log(`${item[0] + 1}: ${item[1]}`);
+// const printGoals = function (...players) {
+//   console.log(`${players.length} goals are scored`);
+// };
+
+// // printGoals('Davies', 'Muller', 'Lewandovski', 'Kimmich');
+// printGoals(...game.scored);
+
+// console.log(allPlayers);
+// console.log(players1Final);
+
+// team1 < team2 && console.log('Team 1 is more likely to win');
+// team1 > team2 && console.log('Team 2 is more likely to win');
+
+// const menu = ['Pasta', 'Pizza', 'Lasagne'];
+// for (const item of menu) console.log(item);
+
+// for (const item of menu.entries()) {
+//   console.log(`${item[0] + 1}: ${item[1]}`);
+// }
+
+const gameEvents = new Map([
+  [17, 'GOAL'],
+  [36, 'Substitution'],
+  [47, 'GOAL'],
+  [61, 'Substitution'],
+  [64, 'Yellow card'],
+  [69, 'Red card'],
+  [70, 'Substitution'],
+  [72, 'Substitution'],
+  [76, 'GOAL'],
+  [80, 'GOAL'],
+  [92, 'Yellow card'],
+]);
+
+const events = [...new Set(gameEvents.values())];
+
+console.log(gameEvents);
+console.log(events);
+gameEvents.delete(64);
+
+const averages = 90 / gameEvents.size;
+console.log(`The event happened on average ${averages} minutes`);
+
+for (const [time, event] of gameEvents) {
+  if (time <= 45) {
+    console.log(`First half! ${time}: ${event}`);
+  } else {
+    console.log(`Second half! ${time}: ${event}`);
+  }
 }
