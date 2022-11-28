@@ -81,11 +81,8 @@ console.log(average);
 // const name = Object.values();
 
 // for
-
 // console.log(`Odd`);
-
 // const [players1, players2] = game.players;
-
 // const [gk, ...fieldPlayers] = players1;
 
 // const allPlayers = [...players1, ...players2];
@@ -146,3 +143,36 @@ for (const [time, event] of gameEvents) {
     console.log(`Second half! ${time}: ${event}`);
   }
 }
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle place!');
+  else console.log('You are lucky!');
+};
+
+checkMiddleSeat('75C');
+checkMiddleSeat('32B');
+
+const passenger = 'joNaS';
+const passengerLowerCase = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLowerCase[0].toUpperCase() + passengerLowerCase.slice(1);
+
+console.log(passengerCorrect);
+
+const capitalizeName = function (name) {
+  const arr = name.split(' ');
+  const capitalizedWords = [];
+
+  for (const word of arr) {
+    // capitalizedWords.push(word[0].toUpperCase() + word.slice(1)).join;
+    capitalizedWords.push(word.replace(word[0], word[0].toUpperCase()));
+  }
+
+  console.log(capitalizedWords.join(' '));
+};
+
+capitalizeName('jessica ann smith davis');
