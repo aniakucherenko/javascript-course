@@ -176,3 +176,60 @@ const capitalizeName = function (name) {
 };
 
 capitalizeName('jessica ann smith davis');
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const cut = str.slice(-4);
+  console.log(cut.padStart(str.length, 'X'));
+};
+
+maskCreditCard(4149090934569387);
+
+const planesInLine = function (number) {
+  console.log(`There are ${number} planes in line ${'✈️'.repeat(number)}`);
+};
+
+planesInLine(5);
+planesInLine(7);
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const button = document.querySelector('button');
+
+button.addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const splitText = text.split('\n');
+  // console.log(splitText);
+  for (const [i, word] of splitText.entries()) {
+    const [first, second] = word.toLowerCase().trim().split('_');
+
+    const newString = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${newString.padEnd(20)}${'✅'.repeat(i + 1)}`);
+
+    // const newText = `${first} + ${second.replace(second[0], second[0].toUpperCase())
+    // ).padEnd(20, ' '}✅`;
+    // console.log(output);
+  }
+});
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const array = flights.split('+');
+console.log(array);
+
+for (const flight of array) {
+  const [type, from, to, time] = flight.split(';');
+
+  const output = `${type.split('_').join(' ')} from ${from
+    .slice(0, 3)
+    .toUpperCase()} to ${to.slice(0, 3).toUpperCase()} (${time
+    .split(':')
+    .join('h')}) `;
+
+  console.log(output.padStart(50));
+}
