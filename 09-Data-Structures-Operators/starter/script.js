@@ -225,11 +225,11 @@ console.log(array);
 for (const flight of array) {
   const [type, from, to, time] = flight.split(';');
 
-  const output = `${type.split('_').join(' ')} from ${from
+  const output = `${type.startsWith('_Delayed') ? '⏺' : ''}${type
+    .split('_')
+    .join(' ')} from ${from.slice(0, 3).toUpperCase()} to ${to
     .slice(0, 3)
-    .toUpperCase()} to ${to.slice(0, 3).toUpperCase()} (${time
-    .split(':')
-    .join('h')}) `;
+    .toUpperCase()} (${time.split(':').join('h')}) `;
 
   console.log(output.padStart(50));
 }
