@@ -102,3 +102,30 @@ console.log(arr3[0]);
 console.log(arr3.at(0));
 
 console.log(arr3.at(-1));
+
+function checkDogs(dogsJulia, dogsKate) {
+  const dogsJuliaNew = dogsJulia.slice();
+  dogsJuliaNew.splice(0, 1);
+  dogsJuliaNew.splice(-2);
+  const dogs = dogsJuliaNew.concat(dogsKate);
+
+  dogs.forEach(function (dog, i) {
+    if (dog > 3) {
+      console.log(`This is dog number # ${i + 1}, he is ${dog} years old`);
+    } else {
+      console.log(`This is puppy number # ${i + 1}, he is ${dog} years old`);
+    }
+  });
+}
+
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+const eurToUsd = 1.1;
+
+const movementsUsd = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+console.log(movements);
+console.log(movementsUsd);
+
+const movementsUsd2 = movements.map(mov => mov * eurToUsd);
