@@ -51,9 +51,38 @@ const weightJohn = 92;
 const heightJohn = 1.95;
 const MarkBMI = weightMark / heightMark ** 2;
 const JohnBMI = weightJohn / heightJohn ** 2;
-
-console.log(MarkBMI, JohnBMI);
-if (MarkBMI > JohnBMI) {
-  message: "Mark has bigger BMI";
+const markHigherBMI = MarkBMI > JohnBMI;
+console.log(MarkBMI, JohnBMI, markHigherBMI);
+if (markHigherBMI) {
+  console.log(`Mark's BMI is highter than John's and it is ${MarkBMI}`);
+} else {
+  console.log(`John's BMI is highter than Mark's and it is${JohnBMI}`);
 }
-message: "John has bigger BMI";
+
+const firstName = "Anna";
+const job = "developer";
+const birthYear = 1987;
+const year = 2023;
+
+const anna = `I'm ${firstName} from Ukraine, ${year - birthYear} years old`;
+
+console.log(anna);
+
+const age = 14;
+const isOldEnough = age >= 18;
+
+if (isOldEnough) {
+  console.log("Sarah can start driving!🐱");
+} else {
+  const yearsLeft = 18 - age;
+  console.log(`Sarah can not drive, she needs ${yearsLeft} more years🐭`);
+}
+
+const birthYearr = 2015;
+let century;
+if (birthYearr <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
