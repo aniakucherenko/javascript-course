@@ -15,7 +15,6 @@
 // } else {
 //     console.log(`John has highter BMI, it is ${bmiJohn}`);
 // }
- 
 
 // let Dscore1 = 96
 // let Dscore2 = 108
@@ -31,7 +30,7 @@
 
 // if (Kaverage > Daverage && Kaverage >= minScore) {
 //     console.log("The Winner is Kaverage");
-//  } else if 
+//  } else if
 //    (Daverage > Kaverage && Daverage > minScore) {
 //     console.log("The Winner is Daverage");
 //  } else if
@@ -39,16 +38,22 @@
 //     console.log("Both are winners!");
 //  }
 
+let bill = 40;
+let tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+let finalValue = bill + tip;
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, the total was ${finalValue}`
+);
 
+const weightMark = 78;
+const heightMark = 1.69;
+const weightJohn = 92;
+const heightJohn = 1.95;
+const MarkBMI = weightMark / heightMark ** 2;
+const JohnBMI = weightJohn / heightJohn ** 2;
 
-
-
-
-
-
-let bill = 40
-let tip = bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.2
-let finalValue = bill + tip
-console.log(`The bill was ${bill}, the tip was ${tip}, the total was ${finalValue}`);
-
-
+console.log(MarkBMI, JohnBMI);
+if (MarkBMI > JohnBMI) {
+  message: "Mark has bigger BMI";
+}
+message: "John has bigger BMI";

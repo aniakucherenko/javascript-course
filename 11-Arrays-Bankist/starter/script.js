@@ -120,12 +120,20 @@ function checkDogs(dogsJulia, dogsKate) {
 
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
-const eurToUsd = 1.1;
+const calcAverageHumanAge = function (ages) {
+  const humanAges = ages
+    .map(age => (age <= 2 ? 2 * age : 16 + 4 * age))
+    .filter();
+  console.log(humanAges);
+};
 
-const movementsUsd = movements.map(function (mov) {
-  return mov * eurToUsd;
-});
-console.log(movements);
-console.log(movementsUsd);
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 
-const movementsUsd2 = movements.map(mov => mov * eurToUsd);
+//   {
+//     let humanAge = 0;
+//     if (age <= 2) {
+//       humanAge = 2 * age;
+//     }
+//     console.log(humanAge);
+
+// };
