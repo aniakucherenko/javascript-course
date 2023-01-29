@@ -86,3 +86,48 @@ if (birthYearr <= 2000) {
   century = 21;
 }
 console.log(century);
+
+const inputYear = "1991";
+console.log(Number(inputYear) + 18);
+console.log(String(23), 23);
+
+const ageA = 18;
+if (ageA === 18) console.log("You are an adult");
+
+const hasDriverslicence = true;
+const hasGoodVision = true;
+
+console.log(hasDriverslicence && hasGoodVision);
+console.log(hasDriverslicence || hasGoodVision);
+console.log(!hasDriverslicence);
+
+const shouldDrive = hasDriverslicence && hasGoodVision;
+
+if (shouldDrive) {
+  console.log("Sarah is able to drive");
+} else {
+  console.log("Someone else should drive");
+}
+
+const DolphAverage = (97 + 108 + 89) / 3;
+const KoalaAverage = (109 + 95 + 123) / 3;
+
+console.log(DolphAverage, KoalaAverage);
+
+if (DolphAverage > KoalaAverage && DolphAverage >= 100) {
+  console.log("The winner is DolphAverage");
+} else if (KoalaAverage > DolphAverage && KoalaAverage >= 100) {
+  console.log("The winner is KoalaAverage");
+} else {
+  console.log("Both are winners");
+}
+
+const day = "monday";
+
+const newAge = 23;
+newAge >= 18
+  ? console.log("i like to drink wine")
+  : console.log("I like to drink water ");
+
+const drink = age >= 18 ? "wine" : "water";
+console.log(drink);
