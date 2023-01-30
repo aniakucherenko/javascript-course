@@ -68,7 +68,7 @@ const anna = `I'm ${firstName} from Ukraine, ${year - birthYear} years old`;
 
 console.log(anna);
 
-const age = 14;
+const age = 21;
 const isOldEnough = age >= 18;
 
 if (isOldEnough) {
@@ -131,3 +131,12 @@ newAge >= 18
 
 const drink = age >= 18 ? "wine" : "water";
 console.log(drink);
+console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
+
+const countryPopulation = 27;
+
+if (countryPopulation > 33) {
+  console.log("Countrys population is above average");
+} else {
+  console.log(`Countrys population is ${33 - countryPopulation} below average`);
+}
