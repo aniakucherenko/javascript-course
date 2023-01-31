@@ -122,8 +122,6 @@ if (DolphAverage > KoalaAverage && DolphAverage >= 100) {
   console.log("Both are winners");
 }
 
-const day = "monday";
-
 const newAge = 23;
 newAge >= 18
   ? console.log("i like to drink wine")
@@ -133,10 +131,92 @@ const drink = age >= 18 ? "wine" : "water";
 console.log(drink);
 console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
 
-const countryPopulation = 27;
+const countryPopulation = 12;
 
 if (countryPopulation > 33) {
   console.log("Countrys population is above average");
 } else {
   console.log(`Countrys population is ${33 - countryPopulation} below average`);
 }
+
+console.log(
+  `Countrys population is ${
+    countryPopulation > 33 ? "above average" : "below average"
+  }`
+);
+
+const number = 5 + 6 + "4" + 9 - 4 - 2;
+console.log(number);
+
+// const numNeighbours = prompt(
+//   "How many neighbour countries does your countryhave?"
+// );
+
+// if (numNeighbours === 1) {
+//   console.log("Only 1 border!");
+// } else if (numNeighbours > 1) {
+//   console.log("More than 1 border");
+// } else {
+//   console.log("No borders");
+// }
+const country = "ukraine";
+const population = 33;
+const isIsland = false;
+const language = "english";
+
+if (language == "english" && population < 50 && isIsland) {
+  console.log(`You should live in ${country} 🐟`);
+} else {
+  console.log(`${country} does not meet your criteria`);
+}
+
+const dayA = "monday";
+
+switch (dayA) {
+  case "monday":
+    console.log("Plan course structure");
+    console.log("Go to coding meetup");
+    break;
+  case "tuesday":
+    console.log("Prepare theory videos");
+    break;
+  case "wednesday":
+  case "thursday":
+    console.log("Write code examples");
+  case "friday":
+    console.log("Record videos");
+    break;
+  case "saturday":
+  case "sunday":
+    console.log("Enjoy the weekend 🦄");
+    break;
+  default:
+    console.log("Not a valid day");
+}
+
+const lang = "ukr";
+
+switch (lang) {
+  case "spanish":
+    console.log("2nd place in number of natice speakers");
+    break;
+  case "english":
+    console.log("3rd place");
+    break;
+  case "hindi":
+    console.log("number 4");
+    break;
+  case "arabic":
+    console.log("5th place");
+    break;
+  default:
+    console.log("Great language too! 🌝");
+}
+
+const myBill = 275;
+let tips = myBill > 50 && myBill < 300 ? myBill * 0.15 : myBill * 0.2;
+console.log(
+  `The bill is ${myBill} 💫, tips will be ${tips} 🚩, total value is ${
+    myBill + tips
+  }`
+);

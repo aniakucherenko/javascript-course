@@ -182,15 +182,56 @@
 // };
 // console.log(measureKelvin());
 
-const data1 = [17, 22, 24];
-const data2 = [12, 5, -5, 7, 9];
+// const data1 = [17, 22, 24];
+// const data2 = [12, 5, -5, 7, 9];
 
-const printForecast = function (arr) {
-  let string = "";
-  for (let i = 0; i < arr.length; i++) {
-    string += `... ${arr[i]}°C in ${i + 1} day`;
-  }
-  console.log(string);
+// const printForecast = function (arr) {
+//   let string = "";
+//   for (let i = 0; i < arr.length; i++) {
+//     string += `... ${arr[i]}°C in ${i + 1} day`;
+//   }
+//   console.log(string);
+// };
+
+// printForecast(data1);
+
+function logger() {
+  console.log("My name is Anna");
+}
+
+logger();
+
+function fruitProcesser(apples, oranges) {
+  console.log(apples, oranges);
+  const juice = `Juice with ${apples} apples and ${oranges} oranges`;
+  console.log(juice);
+}
+
+fruitProcesser(5, 1);
+fruitProcesser(2, 4);
+// const appleJuice = fruitProcesser(5, 0);
+// console.log(appleJuice);
+
+function describeCountry(country, population, capitalCity) {
+  const string = `${country} has ${population} million people and its capital city is ${capitalCity}`;
+  return string;
+}
+
+const ukraine = describeCountry("Ukraine", 52, "Kyiv");
+console.log(ukraine);
+const norway = describeCountry("Norway", 20, "Oslo");
+console.log(norway);
+
+function calcAge1(birthYear) {
+  const age = 2023 - birthYear;
+  return age;
+}
+
+const age1 = calcAge1(1987);
+console.log(age1);
+
+const calAge2 = function (birthYear) {
+  return 2023 - birthYear;
 };
-
-printForecast(data1);
+const age2 = calAge2(1987);
+console.log(age1, age2);
