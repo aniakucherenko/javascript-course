@@ -235,3 +235,228 @@ const calAge2 = function (birthYear) {
 };
 const age2 = calAge2(1987);
 console.log(age1, age2);
+
+function percentageOfWorld1(population) {
+  const percentage = (population / 7900) * 100;
+  return percentage;
+}
+const ukrainePopulation = percentageOfWorld1(520000);
+console.log(ukrainePopulation);
+const chinaPopulation = percentageOfWorld1(1410000);
+console.log(chinaPopulation);
+
+const percentageOfWorld2 = function (population) {
+  const percentage = (population / 7900) * 100;
+  return percentage;
+};
+
+const ukrainePopulation2 = percentageOfWorld2(520000);
+console.log(ukrainePopulation2);
+const chinaPopulation2 = percentageOfWorld2(1410000);
+console.log(chinaPopulation2);
+
+// const percentageOfWorld3 = (population) => (population / 7900) * 100;
+
+// const ukraine2 = percentageOfWorld3(15000);
+// console.log(ukraine2);
+
+// Arrow function
+const calcAge3 = (birthYear) => 2023 - birthYear;
+const age3 = calcAge3(1987);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, name) => {
+  const age = 2023 - birthYear;
+  const retirement = 65 - age;
+  return `${name} retires an ${retirement} years`;
+};
+
+console.log(yearsUntilRetirement(1987, "Anna"));
+console.log(yearsUntilRetirement(1995, "Kris"));
+
+const fruitCutter = function (fruit) {
+  return fruit * 4;
+};
+
+function fruitProcesser2(apples, oranges) {
+  const applePieces = fruitCutter(apples);
+  const orangePieces = fruitCutter(oranges);
+
+  const juice = `Juice with ${applePieces} apples and ${orangePieces} oranges`;
+  return juice;
+}
+
+console.log(fruitProcesser2(2, 3));
+
+const percentageOfWorld3 = (population) => (population / 7900) * 100;
+
+const describePopulation = function (country, population) {
+  const percentage = percentageOfWorld3(population);
+  const string = `${country} has ${population} million people, which is ${percentage}% about of the world`;
+  return string;
+};
+
+console.log(describePopulation("Switzerland", 22));
+console.log(describePopulation("China", 1441));
+console.log(describePopulation("Ukraine", 52));
+
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+const avgDolphins = calcAverage(85, 54, 41);
+const avgKoalas = calcAverage(23, 34, 27);
+
+function checkWinner(avgDolphins, avgKoalas) {
+  if (avgKoalas > avgDolphins * 2) {
+    console.log(`Koalas win with draw ${avgKoalas} : ${avgDolphins}`);
+  } else if (avgDolphins > avgKoalas * 2) {
+    console.log(`Dolphins win with draw ${avgDolphins} : ${avgKoalas}`);
+  } else {
+    console.log("Nobody wins");
+  }
+}
+checkWinner(avgDolphins, avgKoalas);
+
+const friend1 = "Michael";
+const friend2 = "Steven";
+const friend3 = "Peter";
+
+const friends = ["Michael", "Steven", "Peter"];
+console.log(friends);
+
+const newFriends = friends.push("Kate");
+console.log(friends);
+console.log(newFriends);
+friends.unshift("John");
+console.log(friends);
+const popped = friends.pop();
+
+console.log(popped);
+friends.unshift();
+console.log(friends);
+
+const y = new Array(1991, 1984, 2020, 2045);
+console.log(friends[0]);
+console.log(friends[1]);
+console.log(friends[2]);
+console.log(friends.length);
+console.log([friends.length - 1]);
+console.log(friends[friends.length - 1]);
+
+friends[2] = "Jay";
+console.log(friends);
+
+const anna = ["anna", "kucherenko", 2022 - 1987, friends];
+console.log(anna);
+
+function calcAge(birthYear) {
+  return 2023 - birthYear;
+}
+
+const years = [1998, 2003, 1987, 1995];
+
+const ageA1 = calcAge(years[0]);
+const ageA2 = calcAge(years[1]);
+const ageA3 = calcAge(years[years.length - 1]);
+console.log(ageA1, ageA2, ageA3);
+
+const agesA = [
+  calcAge(years[0]),
+  calcAge(years[1]),
+  calcAge(years[years.length - 1]),
+];
+console.log(agesA);
+
+const populations = [52, 16, 141, 30];
+
+console.log(populations.length === 4);
+
+const percentages = [
+  percentageOfWorld1(populations[0]),
+  percentageOfWorld1(populations[1]),
+  percentageOfWorld1(populations[2]),
+  percentageOfWorld1(populations[3]),
+];
+console.log(percentages);
+
+const neighbours = ["poland", "hungary", "lithuania"];
+console.log(neighbours);
+neighbours.push("Utopia");
+console.log(neighbours);
+neighbours.pop();
+console.log(neighbours);
+if (!neighbours.includes("Germany")) {
+  console.log("Probably not a central Europe country");
+}
+
+neighbours[neighbours.indexOf("Poland")] = "Poland the great";
+console.log(neighbours);
+
+// const myBill = 275;
+// let tips = myBill > 50 && myBill < 300 ? myBill * 0.15 : myBill * 0.2;
+// console.log(
+//   `The bill is ${myBill} 💫, tips will be ${tips} 🚩, total value is ${
+//     myBill + tips
+//   }`
+// );
+
+function calcTip(myBill) {
+  const tips = myBill > 50 && myBill < 300 ? myBill * 0.15 : myBill * 0.2;
+  return tips;
+}
+
+console.log(calcTip(300));
+
+const arrays = [125, 555, 44];
+
+const allTips = [calcTip(arrays[0]), calcTip(arrays[1]), calcTip(arrays[2])];
+
+console.log(allTips);
+
+const totals = [
+  arrays[0] + allTips[0],
+  arrays[1] + allTips[1],
+  arrays[2] + allTips[2],
+];
+
+console.log(totals);
+
+const annaArray = [
+  "Anna",
+  "Kucherenko",
+  2022 - 1987,
+  "developer",
+  ["Kate", "Leo", "Peter"],
+];
+
+const annaObject = {
+  firstName: "Anna",
+  lastName: "Kucherenko",
+  age: 2022 - 1987,
+  job: "developer",
+  friends: ["Kate", "Leo", "Peter"],
+};
+console.log(annaObject);
+console.log(annaObject.lastName);
+console.log(annaObject["lastName"]);
+
+const nameKey = "Name";
+console.log(annaObject["first" + nameKey]);
+console.log(annaObject["last" + nameKey]);
+
+const interestedIn = prompt(
+  "What do you want to know about Anna? Choose between: firstName, lastName, age, job, friends"
+);
+
+if (annaObject[interestedIn]) {
+  console.log(annaObject[interestedIn]);
+} else {
+  console.log("Wrong request");
+}
+
+// const myCountry = {
+//   country: "Ukraine",
+//   capital: "Kyiv",
+//   language: "ukraininan",
+//   population: "52",
+//   neighbours: ["Poland", "Hungary", "Lithuania"],
+// };
