@@ -560,34 +560,46 @@ const annaArray = [
   true,
 ];
 
-for (let i = annaArray.length - 1; i >= 0; i--) {
-  console.log(i, annaArray[i]);
-}
-for (let ex = 1; ex < 4; ex++) {
-  console.log(`------Starting exercise ${ex}`);
-  for (let rep = 1; rep < 6; rep++) {
-    console.log(`Exercise ${ex} Repetition ${rep}`);
-  }
-}
+// for (let i = annaArray.length - 1; i >= 0; i--) {
+//   console.log(i, annaArray[i]);
+// }
+// for (let ex = 1; ex < 4; ex++) {
+//   console.log(`------Starting exercise ${ex}`);
+//   for (let rep = 1; rep < 6; rep++) {
+//     console.log(`Exercise ${ex} Repetition ${rep}`);
+//   }
+// }
 
-const listOfNeighbours = [
-  ["Canada", "Mexico"],
-  ["Spain"],
-  ["Norway", "Sweden", "Russia"],
-];
+// const listOfNeighbours = [
+//   ["Canada", "Mexico"],
+//   ["Spain"],
+//   ["Norway", "Sweden", "Russia"],
+// ];
 
-for (let i = 0; i < listOfNeighbours.length; i++) {
-  for (let y = 0; y < listOfNeighbours[i].length; y++) {
-    console.log(`Neighbour: ${listOfNeighbours[i][y]}`);
-  }
-}
+// for (let i = 0; i < listOfNeighbours.length; i++) {
+//   for (let y = 0; y < listOfNeighbours[i].length; y++) {
+//     console.log(`Neighbour: ${listOfNeighbours[i][y]}`);
+//   }
+// }
 
-const names = [["Anna", "Oleg"], ["Alla", "Oleg"], ["Eva"], ["Sofiia"]];
-for (let i = 0; i < names.length; i++) {
-  for (let a = 0; a < names[i].length; a++) {
-    console.log(`Name: ${names[i][a]}`);
-  }
-}
+// for (let i = 1; i <= 10; i++) {
+//   console.log(`------Starting exercise ${i}`);
+// }
+
+// let i = 1;
+// while (i <= 10) {
+//   console.log(`------Starting exercise ${i}`);
+//   i++;
+// }
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+// console.log(dice);
+
+// while (dice !== 6) {
+//   console.log(`You rolled a ${dice}`);
+//   dice = Math.trunc(Math.random() * 6) + 1;
+//   if (dice === 6) console.log("Loop is about to end...");
+// }
 
 // }
 // const types = [];
@@ -612,20 +624,21 @@ for (let i = 0; i < names.length; i++) {
 //   console.log(annaArray[i], typeof annaArray[i]);
 // }
 
-// const populations = [52, 16, 141, 30];
+const populations = [52, 16, 141, 30];
 
-// function percentageOfWorld1(population) {
-//   const percentage = (population / 7900) * 100;
-//   return percentage;
-// }
+function percentageOfWorld1(population) {
+  const percentage = (population / 7900) * 100;
+  return percentage;
+}
 
-// const percentage2 = [];
-
-// for (let i = 0; i < populations.length; i++) {
+// const percentage3 = [];
+// let i = 0;
+// while (i < populations.length) {
 //   const perc = percentageOfWorld1(population[i]);
-//   percentage2.push(perc);
+//   percentage3.push(perc);
+//   i++;
 // }
-// console.log(percentage2);
+// console.log(percentage3);
 
 // const percentages = [
 //   percentageOfWorld1(populations[0]),
@@ -634,3 +647,38 @@ for (let i = 0; i < names.length; i++) {
 //   percentageOfWorld1(populations[3]),
 // ];
 // console.log(percentages)
+function calcTip(bill) {
+  if (bill >= 50 && bill <= 300) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.2;
+  }
+}
+calcTip();
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tips = [];
+const totals = [];
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(bills[i] + tip);
+}
+
+// calcTip();
+
+// console.log(bills);
+// console.log(tips);
+console.log(totals);
+
+function calcAverage(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+  console.log(sum);
+  // console.log(average);
+}
+console.log(calcAverage(totals));
