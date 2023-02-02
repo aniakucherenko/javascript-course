@@ -432,9 +432,27 @@ const annaObject = {
   firstName: "Anna",
   lastName: "Kucherenko",
   age: 2022 - 1987,
+  birthYear: 1987,
   job: "developer",
   friends: ["Kate", "Leo", "Peter"],
+  hasDriverLicense: false,
+  calcAge: function () {
+    this.age = 2022 - this.birthYear;
+    return this.age;
+  },
+  getSummary: function () {
+    return `${this.firstName} is ${this.calcAge()}years old ${
+      this.job
+    }, and she has ${this.hasDriverLicense ? "a" : "not"} drivers license`;
+  },
 };
+
+console.log(annaObject.getSummary());
+
+console.log(annaObject.calcAge(1995));
+console.log(annaObject.calcAge(1987));
+console.log(annaObject["calcAge"](1995));
+
 console.log(annaObject);
 console.log(annaObject.lastName);
 console.log(annaObject["lastName"]);
@@ -443,20 +461,47 @@ const nameKey = "Name";
 console.log(annaObject["first" + nameKey]);
 console.log(annaObject["last" + nameKey]);
 
-const interestedIn = prompt(
-  "What do you want to know about Anna? Choose between: firstName, lastName, age, job, friends"
+// const interestedIn = prompt(
+//   "What do you want to know about Anna? Choose between: firstName, lastName, age, job, friends"
+// );
+
+// if (annaObject[interestedIn]) {
+//   console.log(annaObject[interestedIn]);
+// } else {
+//   console.log("Wrong request");
+// }
+
+annaObject.location = "Netherlands";
+annaObject["instagram"] = "@ania.kucherenko";
+console.log(annaObject);
+
+console.log(
+  `${annaObject.firstName} has ${annaObject.friends.length} friends, best friend is called ${annaObject.friends[0]}`
 );
 
-if (annaObject[interestedIn]) {
-  console.log(annaObject[interestedIn]);
-} else {
-  console.log("Wrong request");
-}
+const myCountry = {
+  country: "Ukraine",
+  capital: "Kyiv",
+  language: "ukrainian",
+  population: 30,
+  neighbours: ["Poland", "Hungary", "Lithuania"],
+  describe: function () {
+    return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries
+    and a capital called ${this.capital}.`;
+  },
+  checkIsland: function () {
+    return (this.isIsland = this.neighbours.length === 0 ? true : false);
+  },
+};
+console.log(myCountry);
+console.log(myCountry.checkIsland());
+console.log(myCountry.describe());
 
-// const myCountry = {
-//   country: "Ukraine",
-//   capital: "Kyiv",
-//   language: "ukraininan",
-//   population: "52",
-//   neighbours: ["Poland", "Hungary", "Lithuania"],
-// };
+// console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries
+// and a capital called ${myCountry.capital}.`);
+
+// myCountry.population += 2;
+
+// console.log(myCountry.population);
+
+// console.log(myCountry["population"] - 2);
