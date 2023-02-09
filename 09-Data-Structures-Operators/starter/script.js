@@ -267,6 +267,10 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+  orderPizza: function (mainIngridient, ...otherIngredients) {
+    console.log(mainIngridient);
+    console.log(otherIngredients);
+  },
 };
 
 restaurant.orderDelivery({
@@ -371,3 +375,32 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.nameA = 'Ristorante Roma';
 console.log(restaurantCopy.nameA);
 console.log(restaurant.nameA);
+
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+
+  console.log(numbers);
+  console.log(sum);
+};
+add(2, 3);
+add(4, 6, 7, 2, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'cheese', 'onion', 'olives');
+
+restaurant.orderPizza('mushrooms');
