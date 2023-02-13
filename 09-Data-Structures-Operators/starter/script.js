@@ -404,3 +404,55 @@ add(...x);
 restaurant.orderPizza('mushrooms', 'cheese', 'onion', 'olives');
 
 restaurant.orderPizza('mushrooms');
+
+// const apartment = {
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+// // Change code below this line
+
+// const keys = Object.keys(apartment);
+
+// for (const key of keys) {
+//   values.push(apartment[key]);
+// }
+// console.log(values);
+// console.log(keys);
+
+// console.log('!!!!!!!!');
+// console.log('!!!!!!!!');
+
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getAllPropValues(propName) {
+//   const array = [];
+//   for (const product of products) {
+//     if (Object.keys(product).includes(propName)) array.push(product[propName]);
+
+//     console.log(product);
+//     console.log(product[propName]);
+//   }
+//   console.log(array);
+// }
+// getAllPropValues('name');
+
+console.log(3 || ' Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log(0 && 'Jonas');
