@@ -267,11 +267,12 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
-  orderPizza: function (mainIngridient, ...otherIngredients) {
-    console.log(mainIngridient);
-    console.log(otherIngredients);
-  },
+  orderPizza: function (mainIngridient, ...otherIngredients) {},
 };
+
+const menr = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
 
 restaurant.orderDelivery({
   time: '22:30',
@@ -341,18 +342,13 @@ const newArr = [1, 2, ...arr];
 console.log(newArr);
 
 const newMenu = [...restaurant.mainMenu, 'Sushi'];
-console.log(newMenu);
 
 const mainMenuCopy = [...restaurant.mainMenu];
 
 const menu2 = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu2);
 
 const str = 'Jonas';
 const letters = [...str, '', 'S.'];
-console.log(letters);
-console.log(...letters);
-console.log(...str);
 
 // const ingredients = [
 //   prompt("Let's make pasta! Ingredient 1?"),
@@ -369,31 +365,22 @@ const newRestaurant = {
   ...restaurant,
   founder: 'Gjuseppe Vaviolli',
 };
-console.log(newRestaurant);
 
 const restaurantCopy = { ...restaurant };
 restaurantCopy.nameA = 'Ristorante Roma';
-console.log(restaurantCopy.nameA);
-console.log(restaurant.nameA);
 
 const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
 
 const [pizza, risotto, ...otherFood] = [
   ...restaurant.mainMenu,
   ...restaurant.starterMenu,
 ];
-console.log(pizza, risotto, otherFood);
 
 const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
 
 const add = function (...numbers) {
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-
-  console.log(numbers);
-  console.log(sum);
 };
 add(2, 3);
 add(4, 6, 7, 2, 4);
@@ -443,16 +430,105 @@ restaurant.orderPizza('mushrooms');
 // }
 // getAllPropValues('name');
 
-console.log(3 || ' Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
-
 restaurant.numGuests = 23;
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
 
 const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
 
-console.log(0 && 'Jonas');
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numberGuests = rest1.numGuests || 10;
+// rest2.numberGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+rest1.owner = rest1.owner && '<ANONYMOUS>';
+
+rest1.owner &&= '<ANONYMOUS';
+rest2.owner &&= '<ANONYMOUS';
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const players1 = game.players[0];
+const players2 = game.players[1];
+// const [players1, players2] = game.players
+
+const [gk, ...fieldPlayers] = players1;
+
+console.log(players1, players2, gk, fieldPlayers);
+
+const allPlayers = [...players1, ...players2];
+
+console.log(allPlayers);
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+
+console.log(players1Final);
+
+const team1 = game.odds.team1;
+const draw = game.odds.draw;
+const team2 = game.odds.team2;
+
+console.log(team1);
+
+function printGoals(...players) {
+  console.log(`Players scored ${players.length} goals`);
+}
+printGoals('Michael', 'Norris', 'Morrison', 'Laminski');
+printGoals(...game.scored);
+
+function odds(number) {
+  console.log(``);
+}
+
+game.odds.team1 < game.odds.team2 && console.log('Team1 is more likely to win');
