@@ -270,193 +270,310 @@ const restaurant = {
   orderPizza: function (mainIngridient, ...otherIngredients) {},
 };
 
-const menr = [...restaurant.starterMenu, ...restaurant.mainMenu];
+const openingHours = restaurant.openingHours;
 
-for (const item of menu) console.log(item);
+const properties = Object.keys(openingHours);
+console.log(properties);
 
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via del sole',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+let openStr = `We are open on ${properties.length} days:  `;
+console.log(openStr);
 
-const { nameA, openingHours, categories } = restaurant;
-console.log(nameA, openingHours, categories);
+const values = Object.values(openingHours);
+console.log(values);
 
-const {
-  nameA: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
+for (const day of Object.keys(openingHours)) {
+  console.log(day);
+}
 
-console.log(restaurantName, hours, tags);
+const entries = Object.entries(openingHours);
+console.log(entries);
 
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
 
-// let o = 111;
-// let e = 999;
-// const obj = { o: 23, e: 7, c: 14 };
-// ({ o, e } = obj);
-// console.log(o, e);
+// const menuA = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+// for (const item of menuA) console.log(item);
 
-// const arr = [2, 3, 4];
-// const a = arr[0];
-// const b = arr[1];
-// const c = arr[2];
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
 
-// const [x, y, z] = arr;
-// console.log(x, y, z);
-// console.log(arr);
+// console.log(restaurant.openingHours.mon?.open);
 
-let [first, , second] = restaurant.categories;
-console.log(first, second);
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// for (const day of days) {
+//   console.log(day);
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day}, we open ${open}`);
+// }
 
-[first, second] = [second, first];
-console.log(first, second);
-console.log(restaurant.categories);
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
 
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log('starter: ', starter, ', mainCourse: ', mainCourse);
+// const users = [{ name: 'Jonas', email: 'hello@jonas.com' }];
+// console.log(users[0]?.name ?? 'User array empty');
 
-const nested = [2, 4, [5, 6]];
-// const [i, , j] = nested;
-// console.log(i, j);
+// if (users.length > 0) console.log(users[0].name);
+// else console.log('user array empty');
 
-const [i, , [j, k]] = nested;
-console.log(i, j, k);
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del sole',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+// const { nameA, openingHours, categories } = restaurant;
+// console.log(nameA, openingHours, categories);
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// const {
+//   nameA: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
 
-const newMenu = [...restaurant.mainMenu, 'Sushi'];
+// console.log(restaurantName, hours, tags);
 
-const mainMenuCopy = [...restaurant.mainMenu];
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
 
-const menu2 = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// // let o = 111;
+// // let e = 999;
+// // const obj = { o: 23, e: 7, c: 14 };
+// // ({ o, e } = obj);
+// // console.log(o, e);
 
-const str = 'Jonas';
-const letters = [...str, '', 'S.'];
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
 
-// const ingredients = [
-//   prompt("Let's make pasta! Ingredient 1?"),
-//   prompt('Ingredient 2?'),
-//   prompt('Ingredient 3'),
-// ];
+// // const arr = [2, 3, 4];
+// // const a = arr[0];
+// // const b = arr[1];
+// // const c = arr[2];
 
-// console.log(ingredients);
+// // const [x, y, z] = arr;
+// // console.log(x, y, z);
+// // console.log(arr);
 
-// restaurant.orderPasta(...ingredients);
+// let [first, , second] = restaurant.categories;
+// console.log(first, second);
 
-const newRestaurant = {
-  foundedIn: 1998,
-  ...restaurant,
-  founder: 'Gjuseppe Vaviolli',
-};
+// [first, second] = [second, first];
+// console.log(first, second);
+// console.log(restaurant.categories);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.nameA = 'Ristorante Roma';
+// const [starter, mainCourse] = restaurant.order(2, 0);
+// console.log('starter: ', starter, ', mainCourse: ', mainCourse);
 
-const [a, b, ...others] = [1, 2, 3, 4, 5];
+// const nested = [2, 4, [5, 6]];
+// // const [i, , j] = nested;
+// // console.log(i, j);
 
-const [pizza, risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
+// const [i, , [j, k]] = nested;
+// console.log(i, j, k);
 
-const { sat, ...weekdays } = restaurant.openingHours;
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
 
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-};
-add(2, 3);
-add(4, 6, 7, 2, 4);
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
-const x = [23, 5, 7];
-add(...x);
+// const newMenu = [...restaurant.mainMenu, 'Sushi'];
 
-restaurant.orderPizza('mushrooms', 'cheese', 'onion', 'olives');
+// const mainMenuCopy = [...restaurant.mainMenu];
 
-restaurant.orderPizza('mushrooms');
+// const menu2 = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
-// const apartment = {
-//   descr: 'Spacious apartment in the city center',
-//   rating: 4,
-//   price: 2153,
+// const str = 'Jonas';
+// const letters = [...str, '', 'S.'];
+
+// // const ingredients = [
+// //   prompt("Let's make pasta! Ingredient 1?"),
+// //   prompt('Ingredient 2?'),
+// //   prompt('Ingredient 3'),
+// // ];
+
+// // console.log(ingredients);
+
+// // restaurant.orderPasta(...ingredients);
+
+// const newRestaurant = {
+//   foundedIn: 1998,
+//   ...restaurant,
+//   founder: 'Gjuseppe Vaviolli',
 // };
-// const values = [];
-// // Change code below this line
 
-// const keys = Object.keys(apartment);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.nameA = 'Ristorante Roma';
 
-// for (const key of keys) {
-//   values.push(apartment[key]);
-// }
-// console.log(values);
-// console.log(keys);
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
 
-// console.log('!!!!!!!!');
-// console.log('!!!!!!!!');
-
-// const products = [
-//   { name: 'Radar', price: 1300, quantity: 4 },
-//   { name: 'Scanner', price: 2700, quantity: 3 },
-//   { name: 'Droid', price: 400, quantity: 7 },
-//   { name: 'Grip', price: 1200, quantity: 9 },
+// const [pizza, risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
 // ];
 
-// function getAllPropValues(propName) {
-//   const array = [];
-//   for (const product of products) {
-//     if (Object.keys(product).includes(propName)) array.push(product[propName]);
+// const { sat, ...weekdays } = restaurant.openingHours;
 
-//     console.log(product);
-//     console.log(product[propName]);
-//   }
-//   console.log(array);
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+// };
+// add(2, 3);
+// add(4, 6, 7, 2, 4);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushrooms', 'cheese', 'onion', 'olives');
+
+// restaurant.orderPizza('mushrooms');
+
+// // const apartment = {
+// //   descr: 'Spacious apartment in the city center',
+// //   rating: 4,
+// //   price: 2153,
+// // };
+// // const values = [];
+// // // Change code below this line
+
+// // const keys = Object.keys(apartment);
+
+// // for (const key of keys) {
+// //   values.push(apartment[key]);
+// // }
+// // console.log(values);
+// // console.log(keys);
+
+// // console.log('!!!!!!!!');
+// // console.log('!!!!!!!!');
+
+// // const products = [
+// //   { name: 'Radar', price: 1300, quantity: 4 },
+// //   { name: 'Scanner', price: 2700, quantity: 3 },
+// //   { name: 'Droid', price: 400, quantity: 7 },
+// //   { name: 'Grip', price: 1200, quantity: 9 },
+// // ];
+
+// // function getAllPropValues(propName) {
+// //   const array = [];
+// //   for (const product of products) {
+// //     if (Object.keys(product).includes(propName)) array.push(product[propName]);
+
+// //     console.log(product);
+// //     console.log(product[propName]);
+// //   }
+// //   console.log(array);
+// // }
+// // getAllPropValues('name');
+
+// restaurant.numGuests = 23;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+
+// const guests2 = restaurant.numGuests || 10;
+
+// const rest1 = {
+//   name: 'Capri',
+//   numGuests: 20,
+// };
+
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
+
+// // rest1.numberGuests = rest1.numGuests || 10;
+// // rest2.numberGuests = rest2.numGuests || 10;
+// // rest1.numGuests ||= 10;
+// // rest2.numGuests ||= 10;
+
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+
+// rest1.owner &&= '<ANONYMOUS';
+// rest2.owner &&= '<ANONYMOUS';
+
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// const players1 = game.players[0];
+// const players2 = game.players[1];
+// // const [players1, players2] = game.players
+
+// const [gk, ...fieldPlayers] = players1;
+
+// console.log(players1, players2, gk, fieldPlayers);
+
+// const allPlayers = [...players1, ...players2];
+
+// console.log(allPlayers);
+
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+
+// console.log(players1Final);
+
+// const team1 = game.odds.team1;
+// const draw = game.odds.draw;
+// const team2 = game.odds.team2;
+
+// console.log(team1);
+
+// function printGoals(...players) {
+//   console.log(`Players scored ${players.length} goals`);
 // }
-// getAllPropValues('name');
+// printGoals('Michael', 'Norris', 'Morrison', 'Laminski');
+// printGoals(...game.scored);
 
-restaurant.numGuests = 23;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// function odds(number) {
+//   console.log(``);
+// }
 
-const guests2 = restaurant.numGuests || 10;
-
-const rest1 = {
-  name: 'Capri',
-  numGuests: 20,
-};
-
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-};
-
-// rest1.numberGuests = rest1.numGuests || 10;
-// rest2.numberGuests = rest2.numGuests || 10;
-// rest1.numGuests ||= 10;
-// rest2.numGuests ||= 10;
-
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
-
-rest1.owner = rest1.owner && '<ANONYMOUS>';
-
-rest1.owner &&= '<ANONYMOUS';
-rest2.owner &&= '<ANONYMOUS';
+// game.odds.team1 < game.odds.team2 && console.log('Team1 is more likely to win');
 
 const game = {
   team1: 'Bayern Munich',
@@ -499,36 +616,19 @@ const game = {
   },
 };
 
-const players1 = game.players[0];
-const players2 = game.players[1];
-// const [players1, players2] = game.players
-
-const [gk, ...fieldPlayers] = players1;
-
-console.log(players1, players2, gk, fieldPlayers);
-
-const allPlayers = [...players1, ...players2];
-
-console.log(allPlayers);
-
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-
-console.log(players1Final);
-
-const team1 = game.odds.team1;
-const draw = game.odds.draw;
-const team2 = game.odds.team2;
-
-console.log(team1);
-
-function printGoals(...players) {
-  console.log(`Players scored ${players.length} goals`);
-}
-printGoals('Michael', 'Norris', 'Morrison', 'Laminski');
-printGoals(...game.scored);
-
-function odds(number) {
-  console.log(``);
+for (const [i, el] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${el}`);
 }
 
-game.odds.team1 < game.odds.team2 && console.log('Team1 is more likely to win');
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) {
+  average += odd;
+}
+average /= odds.length;
+console.log(average);
+
+for (const [team, odd] of Object.entries(game.odds)) {
+  const str = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${str} ${odd}`);
+}
