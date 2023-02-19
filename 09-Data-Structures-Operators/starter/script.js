@@ -632,3 +632,11 @@ for (const [team, odd] of Object.entries(game.odds)) {
   const str = team === 'x' ? 'draw' : `victory ${game[team]}`;
   console.log(`Odd of ${str} ${odd}`);
 }
+
+function add(...args) {
+  let sum = 0;
+  for (const arg of args) {
+    sum += arg;
+  }
+  return sum;
+}
