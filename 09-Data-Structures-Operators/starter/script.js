@@ -640,3 +640,15 @@ function add(...args) {
   }
   return sum;
 }
+
+// Change code below this line
+function findMatches(numbers, ...args) {
+  const matches = []; // Don't change this line
+  for (const number of numbers) {
+    if (args.includes(number)) {
+      matches.push(number);
+    }
+  }
+  // Change code above this line
+  return matches;
+}
