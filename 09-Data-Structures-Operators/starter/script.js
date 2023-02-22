@@ -740,3 +740,74 @@ rest.set(arr, 'Test');
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest.size);
 console.log(rest.get(arr));
+
+const question = new Map([
+  ['question', 'What is the best programing language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Javascript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Try again'],
+]);
+
+console.log(question);
+
+console.log(Object.entries(openingHours));
+
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+console.log(question.get('question'));
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+// let answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer));
+
+console.log([...question]);
+
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '� Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '� Substitution'],
+  [64, '� Yellow card'],
+  [69, '� Red card'],
+  [70, '� Substitution'],
+  [72, '� Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '� Yellow card'],
+]);
+
+console.log(gameEvents);
+console.log(gameEvents.values);
+const events = new Set([...gameEvents.values()]);
+
+console.log(events);
+
+gameEvents.delete(64);
+console.log(gameEvents);
+
+console.log(`An event happened on average ${90 / gameEvents.size} minutes`);
+
+const timeA = [...gameEvents.keys()].pop();
+console.log(
+  `An event happened on average in every ${timeA / gameEvents.size} minutes`
+);
+
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? 'first' : 'second';
+  console.log(`[${half} HALF] ${min}: ${event}`);
+}
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
