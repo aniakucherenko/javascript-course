@@ -842,3 +842,45 @@ const passengerLower = passenger.toLowerCase();
 const passengerCorrect =
   passengerLower[0].toUpperCase() + passengerLower.slice(1);
 console.log(passengerCorrect);
+
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@jonas.Io \n';
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+const priceGB = '288,97$';
+const priceUS = priceGB.replace('$', '%').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23! Boarding door 23!';
+console.log(announcement.replaceAll('door', 'gate'));
+
+const planeA = 'Airbus A320 neo';
+console.log(planeA.includes('A320'));
+console.log(planeA.includes('Plane'));
+
+console.log(planeA.startsWith('Airb'));
+
+if (planeA.startsWith('Airbus') && planeA.endsWith('neo')) {
+  console.log('Part of the NEW airbus family');
+}
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are now allowed on board');
+  } else {
+    console.log('Welcome on board');
+  }
+};
+
+checkBaggage('i have a laptop, some food, pocket Knife');
+checkBaggage('socks and camera');
+checkBaggage('Got some snacks and gun for protection');
