@@ -884,3 +884,70 @@ const checkBaggage = function (items) {
 checkBaggage('i have a laptop, some food, pocket Knife');
 checkBaggage('socks and camera');
 checkBaggage('Got some snacks and gun for protection');
+
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedman'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedman'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizedName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+capitalizedName('jessica ann smith davis');
+capitalizedName('jonas schmedmann');
+
+const message = 'Go to gate 23';
+console.log(message.padStart(15, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(6543567890));
+console.log(maskCreditCard(123456709));
+
+const message2 = 'Bad weather... All Departures delayed...';
+console.log(message2.repeat(5));
+
+const planesInline = function (n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+planesInline(5);
+planesInline(3);
+planesInline(10);
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const button = document.querySelector('button');
+
+button.addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(` ${output.padEnd(20)}${'🐼'.repeat(i + 1)}`);
+  }
+
+  // const [first, second] = textSplit.toLowerCase().trim().split('');
+
+  // const textLower = textSplit.toLowerCase();
+  console.log(rows);
+  // console.log(textLower);
+});
