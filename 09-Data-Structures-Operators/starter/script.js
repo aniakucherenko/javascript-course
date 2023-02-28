@@ -952,15 +952,17 @@ const flights =
 
 const flightsSplit = flights.split('+');
 
+const getCode = str => str.slice(0, 3).toUpperCase();
+
 for (const flight of flightsSplit) {
   const [type, from, to, time] = flight.split(';');
   const output = `${type.startsWith('_Delayed') ? '🐱' : ''}${type.replaceAll(
     '_',
     ' '
-  )} from ${from.toUpperCase().slice(0, 3)} to ${to
-    .toUpperCase()
-    .slice(0, 3)} ${time.replace(':', 'h')}`;
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(45);
   // console.log(output);
-
-  console.log(output.padStart(50));
+  console.log(output);
 }
