@@ -229,7 +229,7 @@ transformer('Javascript is the best', upperFirstWord);
 transformer('Javascript is the best', oneWord);
 
 const high5 = function () {
-  console.log('🐤');
+  // console.log('🐤');
 };
 document.body.addEventListener('click', high5);
 ['Jonas', 'Marta', 'Kate'].forEach(high5);
@@ -313,7 +313,54 @@ document
 const addTax = (rate, value) => value + value * rate;
 console.log(addTax(0.1, 200));
 
-const addVAT = addTax.bind(null, 0, 23);
+const addVAT = addTax.bind(null, 0.23);
 
 console.log(addVAT(100));
 console.log(addVAT(23));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
+
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: Javascript', '1: Phyton', '2: Rust', '3: C++'],
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    const answer = Number(
+      prompt(
+        `${this.question} \n ${this.options.join(
+          '\n'
+        )} \n (Write option number)`
+      )
+    );
+
+    typeof answer === 'number' &&
+      answer < this.answers.length &&
+      this.answers[answer]++;
+    // console.log(poll.answers);
+    this.displayResults();
+    // this.displayResults('string');
+  },
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
+  },
+  // displayResults() {
+  //   console.log(this.answers);
+  // },
+};
+
+// poll.registerNewAnswer();
+
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
