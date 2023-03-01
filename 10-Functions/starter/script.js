@@ -434,3 +434,10 @@ const boardPassengers = function (n, wait) {
 
 const perGroup = 1000;
 boardPassengers(180, 3);
+
+(function () {
+  const header = document.querySelector('h1');
+  header.addEventListener('click', function () {
+    header.style.color = 'red';
+  });
+})();
