@@ -364,3 +364,19 @@ const poll = {
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+poll.displayResults.call({ answers: [12, 22, 3, 5] }, 'string');
+poll.displayResults.call({ answers: [12, 22, 3, 5] });
+
+const runOnce = function () {
+  console.log('This will never run again');
+};
+
+runOnce();
+
+(function () {
+  console.log('This will never run again');
+})();
+
+(() => console.log('This will also never run again'))();
