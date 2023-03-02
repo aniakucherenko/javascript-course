@@ -204,3 +204,20 @@ console.log(currenciesUnique);
 currenciesUnique.forEach(function (value, key, map) {
   console.log(`${key}: ${value}`);
 });
+
+const checkDogs = function (dogsJulia, dogsKate) {
+  const correctJulia = dogsJulia.slice(1, -2);
+  const newArr = [...correctJulia, ...dogsKate];
+  console.log(newArr);
+  newArr.forEach(function (el, i, arr) {
+    if (el < 3) {
+      console.log(`Dog number ${i + 1} is still a puppy`);
+    } else {
+      console.log(`Dog number ${i + 1}
+      is an adult, and is ${el} years old`);
+    }
+  });
+};
+
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
