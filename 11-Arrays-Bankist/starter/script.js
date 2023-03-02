@@ -169,3 +169,22 @@ console.log(arr3.at(0));
 console.log(arr3[arr3.length - 1]);
 console.log(arr3.slice(-1)[0]);
 console.log(arr3.at(-1));
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+}
+console.log('!!!');
+
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
