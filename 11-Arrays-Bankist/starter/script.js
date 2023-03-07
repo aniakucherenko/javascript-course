@@ -236,11 +236,14 @@ const calcAverageHumanAge = function (ages) {
     filteredDogs.reduce(function (acc, age) {
       return acc + age;
     }, 0) / filteredDogs.length;
-
-  console.log(average);
-  console.log(humanAges);
-  console.log(filteredDogs);
 };
+//   const calcAverageHumanAge = ages =>
+//     ages
+//       .map(age <= 2 ? 2 * age : 16 + age * 4)
+//       .filter((age, i, arr) => age >= 18)
+//       .reduce((acc, age) => acc + age / arr.length, 0);
+// };
+
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 
 console.log('!!!!!!!!!');
@@ -277,3 +280,21 @@ const totalDepositsUSD = movements
 
   .reduce((acc, mov) => acc + mov, 0);
 console.log(totalDepositsUSD);
+
+const firstWithDrawal = movements.find(mov => mov < 0);
+
+console.log(movements);
+// console.log(firstWithDrawal);
+// console.log(accounts);
+console.log(movements.includes(-130));
+
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+
+console.log(movements.every(mov => mov > 0));
+// console.log(accounts4.movements.every(mov => mov > 0));
+
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
