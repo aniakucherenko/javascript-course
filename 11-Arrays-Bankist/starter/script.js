@@ -264,3 +264,9 @@ const movementsDescriptions = movements.map(
 console.log(movementsDescriptions);
 
 movements.filter(function (mov) {});
+
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDepositsUSD);
