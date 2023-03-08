@@ -354,3 +354,35 @@ console.log(movements);
 
 movements.sort((a, b) => b - a);
 console.log(movements);
+
+const arr4 = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+const x = new Array(7);
+console.log(x);
+// x.fill(1);
+// console.log(x);
+x.fill(1, 3, 5);
+console.log(x);
+
+arr4.fill(23, 2, 6);
+console.log(arr4);
+
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (cur, i) => i + 1);
+console.log(z);
+
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+
+console.log(bankDepositSum);
+
+const numDeposits1000 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0)
+  .filter(mov => mov > 1000).length;
+console.log(numDeposits1000);
