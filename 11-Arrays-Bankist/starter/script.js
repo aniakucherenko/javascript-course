@@ -430,3 +430,28 @@ const convertTitleCase = function (title) {
 console.log(convertTitleCase('this is a nice title'));
 console.log(convertTitleCase('this is a LONG title'));
 console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+// dogs.forEach(function (dog) {
+//   dog.recommendedFood = dog.weight ** 0.75 * 28;
+//   console.log(dogs);
+// });
+
+dogs.forEach(
+  dog => (dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28))
+);
+console.log(dogs);
+console.log(dogs);
+
+const foundedDog = dogs.find(dog => dog.owners.includes('Sarah'));
+console.log(foundedDog);
+if (foundedDog.curFood > this.recommendedFood) {
+  console.log('The dog is eating too much');
+} else {
+  console.log('The dog is eating too little');
+}
