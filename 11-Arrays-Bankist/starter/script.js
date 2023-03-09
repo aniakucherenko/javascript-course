@@ -455,3 +455,24 @@ if (foundedDog.curFood > this.recommendedFood) {
 } else {
   console.log('The dog is eating too little');
 }
+
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+console.log(ownersEatTooMuch);
+// console.log(ownersEatTooLittle);
+console.log(
+  `${ownersEatTooMuch[0]} and ${ownersEatTooMuch[1]} and ${ownersEatTooMuch[2]}'s dogs eat too much!`
+);
+console.log(
+  `${ownersEatTooLittle[0]} and ${ownersEatTooLittle[1]} and ${ownersEatTooLittle[2]}'s dogs eat too little!`
+);
+
+console.log(dogs.some(dog => (dog.curFood = dog.recommendedFood)));
+console.log(dogs.some(dog => dog.recommendedFood >= dog.curFood));
+console.log(dogs.filter(dog => dog.recommendedFood >= dog.curFood));
+
+console.log(dogs.sort(dog.recommendedFood >= dog.curFood));
