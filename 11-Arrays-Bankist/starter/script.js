@@ -456,6 +456,14 @@ if (foundedDog.curFood > this.recommendedFood) {
   console.log('The dog is eating too little');
 }
 
+const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+console.log(dogSarah);
+console.log(
+  `Sarah's dog is eating too ${
+    dogSarah.curFood > dogSarah.recFood ? 'much' : 'little'
+  } `
+);
+
 const ownersEatTooMuch = dogs
   .filter(dog => dog.curFood > dog.recommendedFood)
   .flatMap(dog => dog.owners);
