@@ -154,6 +154,18 @@ const updateUI = function (acc) {
 ///////////////////////////////////////
 // Event handlers
 let currentAccount;
+currentAccount = account1;
+updateUI(currentAccount);
+containerApp.style.opacity = 100;
+
+const now = new Date();
+const day = `${now.getDate()}`.padStart(2, 0);
+const month = `${now.getMonth() + 1}`.padStart(2, 0);
+const year = now.getFullYear();
+const hour = now.getHours();
+const min = now.getMinutes();
+
+labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -308,3 +320,50 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
+
+// const diameter = 287_560_000;
+// console.log(diameter);
+
+// const priceCents = 345_99;
+// console.log(priceCents);
+
+// const PI = 3.1415;
+// console.log(PI);
+
+// console.log(Number('23000'));
+
+// console.log(2 ** 53 - 1);
+// console.log(Number.MAX_SAFE_INTEGER);
+// console.log(2 ** 53);
+
+// console.log(234567890765678987654567n);
+// console.log(BigInt(2345677));
+
+// const huge = 5623456789098765434567n;
+// const num = 23;
+// console.log(huge + BigInt(num));
+
+// console.log(20n > 15);
+// console.log(20n === 20);
+// console.log(typeof 20n);
+// console.log(20n == '20');
+
+// console.log(huge + ' is Really big!!');
+
+// console.log(10n / 3n);
+// console.log(10 / 3);
+
+// const now = new Date();
+// console.log(now);
+// console.log(new Date('March 17,2023'));
+// console.log(new Date(2037, 10, 19, 15, 23, 5));
+
+// const future = new Date(2037, 10, 19, 15, 23);
+// console.log(future);
+// console.log(future.getFullYear());
+// console.log(future.getMonth());
+// console.log(future.getDay());
+// console.log(future.toISOString());
+// console.log(Date.now());
+// future.setFullYear(2040);
+// console.log(future);
