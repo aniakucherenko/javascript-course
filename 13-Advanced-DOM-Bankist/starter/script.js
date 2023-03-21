@@ -49,14 +49,38 @@ message.classList.add('cookie-message');
 message.innerHTML =
   'We use cookies for improved functionality and analytics.<button class="btn btn--close-cookie"> Got it! </button>';
 
-header.prepend(message);
+// header.prepend(message);
 // header.append(message);
-header.append(message.cloneNode(true));
+// header.append(message.cloneNode(true));
 
-// header.before(message)
-header.after(message);
+header.before(message);
+// header.after(message);
 
 document.querySelector('.btn--close-cookie');
 addEventListener('click', function () {
   message.parentElement.removeChild(message);
 });
+
+message.style.backgroundColor = 'olive';
+message.style.width = '120%';
+
+console.log(message.style.backgroundColor);
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.getAttribute('src'));
+
+console.log(logo.dataset.versionNumber);
+
+logo.classList.add('c', 'j');
+logo.classList.remove('c', 'j');
+logo.classList.toggle('c');
+logo.classList.contains('c');
