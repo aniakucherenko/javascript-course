@@ -64,23 +64,46 @@ addEventListener('click', function () {
 message.style.backgroundColor = 'olive';
 message.style.width = '120%';
 
-console.log(message.style.backgroundColor);
-console.log(getComputedStyle(message).color);
-console.log(getComputedStyle(message).height);
+// console.log(message.style.backgroundColor);
+// console.log(getComputedStyle(message).color);
+// console.log(getComputedStyle(message).height);
 
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+// message.style.height =
+//   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.getAttribute('src'));
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.src);
+// console.log(logo.getAttribute('src'));
 
-console.log(logo.dataset.versionNumber);
+// console.log(logo.dataset.versionNumber);
 
-logo.classList.add('c', 'j');
-logo.classList.remove('c', 'j');
-logo.classList.toggle('c');
-logo.classList.contains('c');
+// logo.classList.add('c', 'j');
+// logo.classList.remove('c', 'j');
+// logo.classList.toggle('c');
+// logo.classList.contains('c');
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
+
+  console.log(
+    'heigth/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  window.scrollTo(
+    s1coords.left + window.pageXOffset,
+    s1coords.top + window.pageYOffset
+  );
+});
