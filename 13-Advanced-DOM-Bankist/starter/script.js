@@ -169,6 +169,11 @@ const allSections = document.querySelectorAll('.section');
 const revealSection = function (entries, observer) {
   const [entry] = entries;
   console.log(entry);
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
 };
 const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
@@ -176,7 +181,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 });
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
-  section.classLict.add('section--hidden');
+  section.classList.add('section--hidden');
 });
 
 // console.log(document.documentElement);
