@@ -232,7 +232,6 @@ const slider = function () {
       );
     });
   };
-  createDots();
 
   const activateDot = function (slide) {
     document
@@ -244,7 +243,6 @@ const slider = function () {
       .classList.add('dots__dot--active');
   };
 
-  activateDot(0);
   const goToSlide = function (slide) {
     slides.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
@@ -362,10 +360,10 @@ slider();
 
 // h1.addEventListener('mouseenter', alertH1);
 // setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
-const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-const randomColor = () =>
-  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min + 1) + min);
+// const randomColor = () =>
+//   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
 
 // console.log(randomColor(0, 255));
 
