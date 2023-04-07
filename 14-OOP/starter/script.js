@@ -1,16 +1,34 @@
 'use strict';
 
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
 
-  //Never use methods inside of construction
-  //   this.calcAge = function () {
-  //     console.log(2037 - this.birthYear);
-  //   };
-};
+//   Person.prototype.calcAge = function () {
+//     console.log(2037 - this.birthYear);
+//   };
 
-const anna = new Person('Anna', 1987);
+//   const Student = function (firstName, birthYear, course) {
+//     // Person.call(this, firstName, birthYear);
+//     this.course = course;
+//   };
+
+//   Student.prototype = Object.create(Person.prototype);
+
+//   Student.prototype.introduce = function () {
+//     console.log(`My name is ${this.firstName} and i study ${this.course}`);
+//   };
+
+//   const mike = new Student('Mike', 2020, 'Computer Science');
+
+//   mike.introduce();
+//   mike.calcAge();
+//Never use methods inside of construction
+//   this.calcAge = function () {
+//     console.log(2037 - this.birthYear);
+//   };
+
+// const anna = new Person('Anna', 1987);
 // console.log(anna);
 
 // New {} is created
@@ -18,23 +36,23 @@ const anna = new Person('Anna', 1987);
 // {} linked to prototype
 // func automatically return {}
 
-const matilda = new Person('Matilda', 1980);
-const jack = new Person('Jack', 1995);
+// const matilda = new Person('Matilda', 1980);
+// const jack = new Person('Jack', 1995);
 // console.log(matilda, jack);
 
 // console.log(anna instanceof Person);
 // console.log(Person.prototype);
 //Prototypes
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+// Person.prototype.calcAge = function () {
+//   //   console.log(2037 - this.birthYear);
+// };
 
-anna.calcAge();
+// anna.calcAge();
 
 // console.log(Person.prototype.isPrototypeOf(anna));
 // console.log(Person.prototype.isPrototypeOf(Person));
 
-Person.prototype.species = 'Homo Sapiens';
+// Person.prototype.species = 'Homo Sapiens';
 // console.log(anna.species, matilda.species);
 
 // console.log(anna.hasOwnProperty('firstName'));
@@ -59,84 +77,193 @@ Array.prototype.unique = function () {
 const h1 = document.querySelector('h1');
 // console.dir(x => x + 1);
 
-const Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
-};
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
 
-Car.prototype.accelerate = function () {
-  this.speed += 10;
-  console.log(`${this.speed} km/h`);
-};
-Car.prototype.brake = function () {
-  this.speed -= 5;
-  console.log(`${this.speed} km/h`);
-};
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+//   //   console.log(`${this.speed} km/h`);
+// };
+// Car.prototype.brake = function () {
+//   this.speed -= 5;
+//   console.log(`${this.speed} km/h`);
 
-const car1 = new Car('BMW', 120);
-const car2 = new Car('Mercedes', 95);
+// const car1 = new Car('BMW', 120);
+// const car2 = new Car('Mercedes', 95);
 
-car1.accelerate();
-car2.accelerate();
-car1.brake();
-car2.brake();
+// car1.accelerate();
+// car2.accelerate();
+// car1.brake();
+// car2.brake();
 
 //class expression
 // const PersonCl = class {}
 
 //class declaration
-class PersonCl {
-  constructor(fullName, birthYear) {
-    this.fullName = fullName;
-    this.birthYear = birthYear;
-  }
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  }
+// class PersonCl {
+//   constructor(fullName, birthYear) {
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//   }
+//   calcAge() {
+//     // console.log(2037 - this.birthYear);
+//   }
 
-  greet() {
-    console.log(`Hey, ${this.firstName}`);
-  }
+//   greet() {
+//     // console.log(`Hey, ${this.firstName}`);
+//   }
 
-  get age() {
-    return 2037 - this.birthYear;
-  }
+//   get age() {
+//     return 2037 - this.birthYear;
+//   }
 
-  set fullName(name) {
-    if (name.includes(' ')) this.fullName = name;
-    else alert(`${name} is not a full name`);
-  }
-}
+//   set fullName(name) {
+//     if (name.includes(' ')) this._fullName = name;
+//     else alert(`${name} is not a full name`);
+//   }
 
-const jessica = new PersonCl('Jessica', 1996);
-console.log(jessica);
-jessica.calcAge();
-console.log(jessica.age);
-console.log(jessica.__proto__ === PersonCl.prototype);
+//   get fullName() {
+//     return this._fullName;
+//   }
 
-PersonCl.prototype.greet = function () {
-  console.log(`Hey ${this.firstName}`);
-};
-jessica.greet();
+//   static hey() {
+//     // console.log('Hey there!!!=)');
+//     // console.log(this);
+//   }
+// }
+
+// const jessica = new PersonCl('Jessica Davis', 1996);
+// console.log(jessica);
+// jessica.calcAge();
+// console.log(jessica.age);
+// console.log(jessica.__proto__ === PersonCl.prototype);
+
+// PersonCl.prototype.greet = function () {
+//   //   console.log(`Hey ${this.firstName}`);
+// };
+// jessica.greet();
 
 //Classes are not hoisted
 //Classes are first class citizens
 //Classes executed in a strict mode
 
-const account = {
-  owner: 'Jonas',
-  movements: [200, 530, 400, 300],
+// const walter = new PersonCl('Walter White', 1995);
 
-  get latest() {
-    return this.movements.slice(-1).pop();
-  },
+// PersonCl.hey();
 
-  set latest(mov) {
-    this.movements.push(mov);
-  },
+// const account = {
+//   owner: 'Jonas',
+//   movements: [200, 530, 400, 300],
+
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   },
+// };
+
+// // console.log(account.latest);
+
+// account.latest = 50;
+// // console.log(account.movements);
+
+// Person.hey = function () {
+//   //   console.log('Hey there!!!=)');
+//   //   console.log(this);
+// };
+
+// Person.hey();
+
+// const PersonProto = {
+//   calcAge() {
+//     // console.log(2037 - this.birthYear);
+//   },
+
+//   init(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   },
+// };
+// const steven = Object.create(PersonProto);
+// // console.log(steven);
+// steven.name = 'Steven';
+// steven.birthYear = 2002;
+// steven.calcAge();
+
+// // console.log(steven.__proto__ === PersonProto);
+
+// const sarah = Object.create(PersonProto);
+// sarah.init('Sarah', 1979);
+// sarah.calcAge();
+
+// class CarCl {
+//   constructor(make, speed) {
+//     this.make = make;
+//     this.speed = speed;
+//   }
+//   get speedUS() {
+//     return this.speed / 1.6;
+//   }
+
+//   set speedUS(speed) {
+//     this.speed = speed * 1.6;
+//   }
+
+//   accelerate() {
+//     this.speed += 10;
+//     // console.log(`${this.speed} km/h`);
+//   }
+//   brake() {
+//     this.speed -= 5;
+//     // console.log(`${this.speed} km/h`);
+//   }
+// }
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  //   console.log(`${this.speed} km/h`);
+};
+Car.prototype.brake = function () {
+  this.speed -= 5;
+};
+const EV = function (make, speed, charge) {
+  Car.call(this, make, speed);
+  this.charge = charge;
+};
+EV.prototype = Object.create(Car.prototype);
+
+EV.prototype.chargeBattery = function (chargeTo) {
+  this.speed = chargeTo;
 };
 
-console.log(account.latest);
+EV.prototype.accelerate = function () {
+  this.speed += 20;
+  this.charge--;
+  console.log(
+    `${this.make} is going at ${this.speed} km/h, with a charge ${this.charge}`
+  );
+};
 
-account.latest = 50;
-console.log(account.movements);
+const tesla = new EV('Tesla', 120, 23);
+
+tesla.chargeBattery(90);
+tesla.chargeBattery(70);
+tesla.chargeBattery(50);
+tesla.accelerate();
+tesla.accelerate();
+tesla.accelerate();
+console.log(tesla);
+
+// const ford = new CarCl('Ford', 120);
+// ford.accelerate();
+// ford.brake();
+// ford.brake();
+// console.log(ford.speedUS)
