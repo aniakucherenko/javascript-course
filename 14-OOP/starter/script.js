@@ -334,3 +334,17 @@ const PersonProto = {
 };
 
 const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonPhoto);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.fullName} and i study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2010, 'Computer Science');
+jay.introduce();
+jay.calcAge();
