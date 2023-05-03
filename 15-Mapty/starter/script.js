@@ -72,11 +72,11 @@ class App {
       );
   }
   _loadMap(position) {
-    const { latitude } = position.coords;
-    const { longitude } = position.coords;
+    const { lat } = position.coords;
+    const { lng } = position.coords;
     console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
 
-    const coords = [latitude, longitude];
+    const coords = [lat, lng];
 
     console.log(this);
     this.#map = L.map('map').setView(coords, 13);
@@ -102,6 +102,7 @@ class App {
   _newWorkout(e) {
     const validInputs = (...inputs) =>
       inputs.every(inp => Number.isFinite(inp));
+    const allPositive = (...inputs) => inputs.every(inp=> inp>0)
 
     e.preventDefault();
 
@@ -115,14 +116,14 @@ class App {
         // !Number.isFinite(distance) ||
         // !Number.isFinite(duration) ||
         // !Number.isFinite(cadence)
-        !validInputs(distance, duration, cadence)
+        !validInputs(distance, duration, cadence) || !allPositive(distance, duration, cadence)
       )
         return alert('Inputs have to be positive numbers!');
     }
     if (type === 'cycling') {
       const elevation = +inputElevation.value;
       if (
-        !validInputs(distance, duration, elevation)
+        !validInputs(distance, duration, elevation) || !allPositive(distance, duration)
       )
       return alert('Inputs have to be positive numbers!');
     }
@@ -130,8 +131,7 @@ class App {
 
     //Display marker
 
-    const { lat, lng } = this.#mapEvent.latlng;
-
+    const { lat, lng } = this.#mapEvent.latlng
     L.marker([lat, lng])
       .addTo(this.#map)
       .bindPopup(
@@ -145,15 +145,17 @@ class App {
       )
       .setPopupContent('Workout')
       .openPopup();
-
+      
     //Clear input fields
     inputDistance.value =
       inputDuration.value =
       inputCadence.value =
       inputElevation.value =
         '';
-  }
-}
+
+
+      }
+    }
 
 const app = new App();
 app._getPosition();
